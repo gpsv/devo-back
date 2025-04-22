@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
 
-@Schema()
+@Schema({ timestamps: true })
 export class User extends Document {
   @Prop({
     index: true,
@@ -84,10 +84,18 @@ export class User extends Document {
   @Prop({ default: null })
   token: string;
 
-  @Prop({ default: null })
+  @Prop({
+    default: null,
+    ref: 'UserPreference',
+    required: true,
+    unique: true,
+  })
   userPreference: Types.ObjectId;
 
-  @Prop({ default: null })
+  @Prop({
+    ref: 'Church',
+    default: null,
+  })
   church: Types.ObjectId;
 }
 
