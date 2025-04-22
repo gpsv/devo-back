@@ -63,17 +63,11 @@ export class User extends Document {
   password: string;
 
   @Prop({
-    required: true,
-    emun: [
-      'ADMIN_ROLE',
-      'MISION_LEADER_ROLE',
-      'SHEPHERD_ROLE',
-      'GROUPE_LEADER_ROLE ',
-      'LEADER_ROLE',
-      'MEMBER_ROLE',
-    ],
+    default: null,
+    ref: 'Rol',
+    unique: true,
   })
-  role: string;
+  role: Types.ObjectId;
 
   @Prop({ default: false })
   status: boolean;

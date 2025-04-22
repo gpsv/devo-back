@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { UserPreferenceService } from './user_preference.service';
-import { CreateUserPreferenceDto } from './dto/create-user_preference.dto';
-import { UpdateUserPreferenceDto } from './dto/update-user_preference.dto';
+import { UserPreferenceService } from './user-preference.service';
+import { CreateUserPreferenceDto } from './dto/create-user-preference.dto';
+import { UpdateUserPreferenceDto } from './dto/update-user-preference.dto';
 
 @Controller('user-preference')
 export class UserPreferenceController {

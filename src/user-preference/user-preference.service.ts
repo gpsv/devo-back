@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreateUserPreferenceDto } from './dto/create-user_preference.dto';
-import { UpdateUserPreferenceDto } from './dto/update-user_preference.dto';
+import { CreateUserPreferenceDto } from './dto/create-user-preference.dto';
+import { UpdateUserPreferenceDto } from './dto/update-user-preference.dto';
 
 @Injectable()
 export class UserPreferenceService {

@@ -7,9 +7,10 @@ import { BookModule } from './book/book.module';
 import { DepartamentModule } from './departament/departament.module';
 import { PositionModule } from './position/position.module';
 import { RolModule } from './rol/rol.module';
-import { UserPreferenceModule } from './user_preference/user_preference.module';
+import { UserPreferenceModule } from './user-preference/user-preference.module';
 import { ZipCodeModule } from './zip_code/zip_code.module';
 import { ChurcheModule } from './churche/churche.module';
+import { DevotionalJournalModule } from './devotional-journal/devotional-journal.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { ChurcheModule } from './churche/churche.module';
     UserPreferenceModule,
     ZipCodeModule,
     ChurcheModule,
+    DevotionalJournalModule,
   ],
   controllers: [],
   providers: [],

@@ -16,7 +16,10 @@ export class Departament extends Document {
   })
   mainLeader_id: Types.ObjectId;
 
-  @Prop({ default: [] })
+  @Prop({
+    type: Array,
+    default: [],
+  })
   secondaryLeaders: [
     {
       user_id: {
