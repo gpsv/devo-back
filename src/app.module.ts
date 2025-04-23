@@ -11,6 +11,7 @@ import { UserPreferenceModule } from './user-preference/user-preference.module';
 import { ZipCodeModule } from './zip_code/zip_code.module';
 import { ChurcheModule } from './churche/churche.module';
 import { DevotionalJournalModule } from './devotional-journal/devotional-journal.module';
+import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { DevotionalJournalModule } from './devotional-journal/devotional-journal
     ZipCodeModule,
     ChurcheModule,
     DevotionalJournalModule,
+    CommonModule,
   ],
   controllers: [],
   providers: [],

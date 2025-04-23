@@ -1,13 +1,23 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ChurcheService } from './churche.service';
 import { CreateChurcheDto } from './dto/create-churche.dto';
 import { UpdateChurcheDto } from './dto/update-churche.dto';
+import { ParseMongoIdPipe } from 'src/common/pipes/parse-mongo-id/parse-mongo-id.pipe';
 
 @Controller('churche')
 export class ChurcheController {
   constructor(private readonly churcheService: ChurcheService) {}
 
   @Post()
+  // @HttpCode(HttpStatus.CREATED)
   create(@Body() createChurcheDto: CreateChurcheDto) {
     return this.churcheService.create(createChurcheDto);
   }
@@ -28,7 +38,7 @@ export class ChurcheController {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.churcheService.remove(+id);
+  remove(@Param('id', ParseMongoIdPipe) id: string) {
+    return this.churcheService.remove(id);
   }
 }

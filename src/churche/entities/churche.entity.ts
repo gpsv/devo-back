@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
 
+export const enumTypeChurche = ['MAIN', 'MISSION'];
 @Schema({ timestamps: true })
 export class Churche extends Document {
   @Prop({
@@ -35,7 +36,7 @@ export class Churche extends Document {
     default: null,
     required: [true, 'El código postal es obligatorio'],
   })
-  zipCode: number;
+  zipCode: string;
 
   @Prop({
     default: null,
@@ -63,7 +64,7 @@ export class Churche extends Document {
   @Prop({
     index: true,
     default: 'MISSION',
-    emun: ['MAIN', 'MISSION'],
+    emun: enumTypeChurche,
     required: [true, 'El nombre es obligatorio'],
   })
   typeChurch: string;
