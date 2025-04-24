@@ -29,12 +29,12 @@ export class ChurcheController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.churcheService.findOne(+id);
+    return this.churcheService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateChurcheDto: UpdateChurcheDto) {
-    return this.churcheService.update(+id, updateChurcheDto);
+    return this.churcheService.update(id, updateChurcheDto);
   }
 
   @Delete(':id')

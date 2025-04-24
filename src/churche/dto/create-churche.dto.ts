@@ -8,6 +8,7 @@ import {
   MinLength,
 } from 'class-validator';
 import { enumTypeChurche } from '../entities/churche.entity';
+import { Transform } from 'class-transformer';
 
 export class CreateChurcheDto {
   @IsString()
@@ -55,6 +56,7 @@ export class CreateChurcheDto {
   @IsEnum(enumTypeChurche)
   typeChurch: string;
 
+  @Transform(({ value }) => new Date(value))
   @IsDate()
   @IsOptional()
   startDate: Date;

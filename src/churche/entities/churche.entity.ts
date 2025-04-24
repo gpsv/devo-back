@@ -83,16 +83,20 @@ export class Churche extends Document {
 
   @Prop({
     ref: 'User',
-    unique: true,
     default: null,
   })
   mainLeader_id: Types.ObjectId;
 
   @Prop({
-    ref: 'User',
-    unique: true,
+    type: Array,
+    default: [],
   })
-  believers: Types.ObjectId;
+  believers: [
+    {
+      user_id: Types.ObjectId;
+      position: string;
+    },
+  ];
 }
 
 export const ChurcheSchema = SchemaFactory.createForClass(Churche);
