@@ -1,7 +1,6 @@
 import { join } from 'path';
 import { Module } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
-import { UserModule } from './user/user.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { BookModule } from './book/book.module';
 import { DepartamentModule } from './departament/departament.module';
@@ -12,6 +11,7 @@ import { ZipCodeModule } from './zip_code/zip_code.module';
 import { ChurcheModule } from './churche/churche.module';
 import { DevotionalJournalModule } from './devotional-journal/devotional-journal.module';
 import { CommonModule } from './common/common.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -19,16 +19,16 @@ import { CommonModule } from './common/common.module';
       rootPath: join(__dirname, '..', 'public'),
     }),
     MongooseModule.forRoot('mongodb://localhost:27017/devotionalNest'),
-    UserModule,
+    AuthModule,
     BookModule,
+    ChurcheModule,
+    CommonModule,
     DepartamentModule,
+    DevotionalJournalModule,
     PositionModule,
     RolModule,
     UserPreferenceModule,
     ZipCodeModule,
-    ChurcheModule,
-    DevotionalJournalModule,
-    CommonModule,
   ],
   controllers: [],
   providers: [],

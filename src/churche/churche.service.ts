@@ -66,7 +66,6 @@ export class ChurcheService {
             new: true,
           },
         );
-
         return churcheUpdated;
       }
     } catch (error) {

@@ -39,3 +39,7 @@ docker-compose up -d
 ```
 mongorestore --db devotional /path_folder
 ```
+6.- Levanta el API
+```
+yarn run:dev
+```
