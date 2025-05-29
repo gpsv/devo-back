@@ -39,7 +39,10 @@ docker-compose up -d
 ```
 mongorestore --db devotional /path_folder
 ```
-6.- Levanta el API
+6.- Clonar el archivo ```.env.template```
+  y renombrar la copia a ```.env```
+
+7.- Levanta el API
 ```
 yarn run:dev
 ```

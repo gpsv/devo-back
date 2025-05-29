@@ -1,5 +1,6 @@
 import { join } from 'path';
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { MongooseModule } from '@nestjs/mongoose';
 import { BookModule } from './book/book.module';
@@ -12,13 +13,17 @@ import { ChurcheModule } from './churche/churche.module';
 import { DevotionalJournalModule } from './devotional-journal/devotional-journal.module';
 import { CommonModule } from './common/common.module';
 import { AuthModule } from './auth/auth.module';
+import { EnvConfiguration } from './config/app.config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      load: [EnvConfiguration],
+    }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
     }),
-    MongooseModule.forRoot('mongodb://localhost:27017/devotionalNest'),
+    MongooseModule.forRoot(process.env.MONGODB!),
     AuthModule,
     BookModule,
     ChurcheModule,
@@ -34,4 +39,8 @@ import { AuthModule } from './auth/auth.module';
   providers: [],
   exports: [],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    console.log(process.env);
+  }
+}

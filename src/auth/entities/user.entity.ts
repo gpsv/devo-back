@@ -59,6 +59,7 @@ export class User extends Document {
 
   @Prop({
     required: [true, 'La contrasena es obligatoria es obligatorio'],
+    select: false,
   })
   password: string;
 
