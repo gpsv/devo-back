@@ -90,7 +90,7 @@ export class ChurcheService {
         `El ${JSON.stringify(error.keyValue)} ya Existe`,
       );
     }
-    console.log(error);
+
     throw new InternalServerErrorException('No se puede crear la iglesia');
   }
 }
